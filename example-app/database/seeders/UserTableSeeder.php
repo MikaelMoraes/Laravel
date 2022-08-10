@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class UserdTableSeeder extends Seeder
+class UserTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,14 +13,14 @@ class UserdTableSeeder extends Seeder
      */
     public function run()
     {
-        \DB::table('users')->insert(      [
+       \DB::table('users')->insert(
+        [
             'name' => 'Administrator',
-            'email' => 'admin@admin.com',
+            'email' =>'admin@admin.com',
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'remember_token' => 'sorte',
-        ]
-    );
-  
+            'remember_token' => 'okksksoksko',
+       ]
+        );
     }
 }
