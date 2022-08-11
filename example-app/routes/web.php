@@ -14,5 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    $helloWorld = 'hello World';
+    return view('welcome', compact('helloWorld'));
+}); 
+Route::get('/model', function () {
+   // $products = \App\Product::all(); //select * fromm products
+   $user = new \App\User();
+   $user-> name ='usuario';
+   $user -> email =  'email@teste.com';
+   $user -> password = bcrypt('12345678');
+  // return $user->save();
+    return \App\User::all();
+    //return $products; 
+}); 
+
