@@ -18,13 +18,15 @@ Route::get('/', function () {
     return view('welcome', compact('helloWorld'));
 }); 
 Route::get('/model', function () {
-   // $products = \App\Product::all(); //select * fromm products
-   $user = new \App\User();
-   $user-> name ='usuario';
-   $user -> email =  'email@teste.com';
-   $user -> password = bcrypt('12345678');
-  // return $user->save();
-    return \App\User::all();
-    //return $products; 
+    $user = \App\Models\User::create([
+
+        'name'=>'mikael vitor',
+        'email'=> 'miakel.vitor@gmail.com',
+        'password'=> bcrypt('123456')
+    ]);
+    dd($user);
+    
+    return \App\Models\User::all();
+  
 }); 
 
