@@ -13,6 +13,9 @@ class StoreTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+      $stores = \App\Models\Store::all();
+      foreach($stores as $store){
+        $stores->products()->save(factory(\App\Models\Product::class)->make());
+      }
     }
 }

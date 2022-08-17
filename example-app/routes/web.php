@@ -30,3 +30,5 @@ Route::get('/model', function () {
   
 }); 
 
+
+Route::get('/admin/stores', 'Admin\\StoreController@index');
