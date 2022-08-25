@@ -16,7 +16,32 @@ class StoreControllers extends Controller
 
         return view('admin.stores.crete');
     }
-    public function stoe(Request $request){
-        dd($request->all());
+    public function store(Request $request){
+        $data = ($request->all());
+        $user = \App\User::find($data(['user']));
+        $user->store()->create($data);
+
+        flash('Loja criada com sucesso')->success();
+        return redirect()->route('admin.stores.index');
     }
+    public function edit ($store){
+        $store = APP\Store::find($store);
+        return view('admin.stores.edit', compact('store'));
+    }
+    public function update(Request $resquest, $store){
+        dd($request->all());
+
+        $store = \App\Store::find($store);
+        $store ->update($data);
+
+        flash('Loja atualizada com sucesso')->success();
+        return redirect()->route('admin.stores.index');
+    }
+    public function destroy($store){
+        $store = \App\Store::find($store);
+        $store ->delete();
+        
+        flash('Loja REmovida com sucesso')->success();
+        return redirect()->route('admin.stores.index');
+    }   
 }
