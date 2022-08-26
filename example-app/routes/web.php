@@ -30,8 +30,8 @@ Route::get('/model', function () {
   
 }); 
 
-Routed::prefix('admin')->namespace('Admin')->group(function(){
-    Routed::prefix('stores')->group(function(){
+Route::prefix('admin')->namespace('Admin')->group(function(){
+    Route::prefix('stores')->group(function(){
         Route::get('/', 'StoreController@index')->name('admin.stores.index');
         Route::get('/create', 'StoreController@create')->name('admin.stores.create');
         Route::post('/store', 'StoreController@store')->name('admin.stores.store');
@@ -40,5 +40,7 @@ Routed::prefix('admin')->namespace('Admin')->group(function(){
         Route::get('/destroy/{store}', 'StoreController@destroy')->name('admin.stores.destroy');
     
     });
+    Route::resource('products', 'ProductController');
+
 });
 
